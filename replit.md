@@ -27,4 +27,5 @@ Minimal personal **development** portfolio + blog for Martin vanDeursen (Nether4
 - **Run**: `pnpm start`
 
 ## Recent Changes
-- 2026-07-19: Dev portfolio refresh — removed research/design duplicates and dead links; added Dutch Data Labs, RepoGuardian, TWPF, G_5.2, Metal Marines Reborn; corrected contact/identity; SEO/AIO/GEO pass (`llms.txt`, JSON-LD, robots, sitemap). Visual redesign deferred to a separate branch.
+- 2026-07-19: Dev portfolio refresh — removed research/design duplicates and dead links; added Dutch Data Labs, RepoGuardian, TWPF, G_5.2, Metal Marines Reborn; corrected contact/identity; SEO/AIO/GEO pass (`llms.txt`, JSON-LD, robots, sitemap).
+- 2026-07-19: Visual redesign branch — “coastal forge” direction (Syne/Manrope/JetBrains, teal ink tokens, atmospheric hero, section reveal motion) while keeping the panel/structure DNA.

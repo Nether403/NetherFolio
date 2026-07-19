@@ -1,6 +1,7 @@
 import dayjs from "dayjs";
 import type { ProfilePage as PageSchema, WithContext } from "schema-dts";
 
+import { Reveal } from "@/components/reveal";
 import { SITE_INFO } from "@/config/site";
 import { About } from "@/features/profile/components/about";
 import { Blog } from "@/features/profile/components/blog";
@@ -26,32 +27,51 @@ export default function Page() {
       />
 
       <div className="mx-auto md:max-w-3xl">
-        <ProfileCover />
-        <ProfileHeader />
+        {/* One hero composition: brand cover + identity */}
+        <div className="relative">
+          <ProfileCover />
+          <ProfileHeader />
+        </div>
         <Separator />
 
-        <SocialLinks />
+        <Reveal>
+          <SocialLinks />
+        </Reveal>
         <Separator />
 
-        <About />
+        <Reveal delay={0.04}>
+          <About />
+        </Reveal>
         <Separator />
 
-        <Projects />
+        <Reveal delay={0.06}>
+          <Projects />
+        </Reveal>
         <Separator />
 
-        <Contact />
+        <Reveal delay={0.04}>
+          <Contact />
+        </Reveal>
         <Separator />
 
-        <PortfolioLinks />
+        <Reveal>
+          <PortfolioLinks />
+        </Reveal>
         <Separator />
 
-        <GitHubContributions />
+        <Reveal>
+          <GitHubContributions />
+        </Reveal>
         <Separator />
 
-        <TeckStack />
+        <Reveal>
+          <TeckStack />
+        </Reveal>
         <Separator />
 
-        <Blog />
+        <Reveal>
+          <Blog />
+        </Reveal>
       </div>
     </>
   );
@@ -96,7 +116,7 @@ function Separator({ className }: { className?: string }) {
       className={cn(
         "relative flex h-8 w-full border-x border-edge",
         "before:absolute before:-left-[100vw] before:-z-1 before:h-8 before:w-[200vw]",
-        "before:bg-[repeating-linear-gradient(315deg,var(--pattern-foreground)_0,var(--pattern-foreground)_1px,transparent_0,transparent_50%)] before:bg-size-[10px_10px] before:[--pattern-foreground:var(--color-edge)]/56",
+        "before:bg-[repeating-linear-gradient(315deg,var(--pattern-foreground)_0,var(--pattern-foreground)_1px,transparent_0,transparent_50%)] before:bg-size-[10px_10px] before:[--pattern-foreground:var(--color-brand)]/22",
         className
       )}
     />

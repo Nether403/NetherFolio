@@ -6,7 +6,7 @@ import Script from "next/script";
 import { Providers } from "@/components/providers";
 import { META_THEME_COLORS, SITE_INFO } from "@/config/site";
 import { USER } from "@/features/profile/data/user";
-import { fontMono, fontSans } from "@/lib/fonts";
+import { fontDisplay, fontMono, fontSans } from "@/lib/fonts";
 
 const TITLE_DEFAULT = `${USER.displayName} – ${USER.jobTitle}`;
 
@@ -221,7 +221,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${fontSans.variable} ${fontMono.variable}`}
+      className={`${fontSans.variable} ${fontMono.variable} ${fontDisplay.variable}`}
       suppressHydrationWarning
     >
       <head suppressHydrationWarning>
