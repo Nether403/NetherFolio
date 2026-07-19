@@ -16,6 +16,11 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
+        hostname: "cdn.jsdelivr.net",
+        port: "",
+      },
+      {
+        protocol: "https",
         hostname: "www.google.com",
         port: "",
       },
