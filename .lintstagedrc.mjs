@@ -1,10 +1,6 @@
-import path from "path";
-
-// See https://nextjs.org/docs/app/api-reference/config/eslint#running-lint-on-staged-files for details
+// Next.js 16 removed `next lint`; use ESLint directly on staged files.
 const buildEslintCommand = (filenames) =>
-  `next lint --fix --file ${filenames
-    .map((f) => path.relative(process.cwd(), f))
-    .join(" --file ")}`;
+  `eslint --fix ${filenames.map((f) => `"${f}"`).join(" ")}`;
 
 /**
  * @type {import('lint-staged').Configuration}

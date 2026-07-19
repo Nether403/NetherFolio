@@ -83,8 +83,10 @@ function getPageJsonLd(post: Post): WithContext<PageSchema> {
     author: {
       "@type": "Person",
       name: USER.displayName,
+      alternateName: [USER.displayNameTag, USER.username],
       identifier: USER.username,
-      image: USER.avatar,
+      url: SITE_INFO.url,
+      image: `${SITE_INFO.url}${USER.avatar}`,
     },
   };
 }

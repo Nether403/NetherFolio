@@ -1,8 +1,12 @@
 import dayjs from "dayjs";
 import type { ProfilePage as PageSchema, WithContext } from "schema-dts";
 
+import { SITE_INFO } from "@/config/site";
+import { About } from "@/features/profile/components/about";
 import { Blog } from "@/features/profile/components/blog";
+import { Contact } from "@/features/profile/components/contact";
 import { GitHubContributions } from "@/features/profile/components/github-contributions";
+import { PortfolioLinks } from "@/features/profile/components/portfolio-links";
 import { ProfileCover } from "@/features/profile/components/profile-cover";
 import { ProfileHeader } from "@/features/profile/components/profile-header";
 import { Projects } from "@/features/profile/components/projects";
@@ -29,7 +33,16 @@ export default function Page() {
         <SocialLinks />
         <Separator />
 
+        <About />
+        <Separator />
+
         <Projects />
+        <Separator />
+
+        <Contact />
+        <Separator />
+
+        <PortfolioLinks />
         <Separator />
 
         <GitHubContributions />
@@ -52,17 +65,26 @@ function getPageJsonLd(): WithContext<PageSchema> {
     dateModified: dayjs().toISOString(),
     mainEntity: {
       "@type": "Person",
-      "@id": "https://nether101.nl/#person",
+      "@id": `${SITE_INFO.url}/#person`,
       name: USER.displayName,
+      alternateName: [USER.displayNameTag, USER.username, "Nether101"],
       identifier: USER.username,
-      url: USER.website,
-      image: `${USER.website}${USER.avatar}`,
-      jobTitle: "AI Alignment Researcher & Design Engineer",
+      url: SITE_INFO.url,
+      image: `${SITE_INFO.url}${USER.avatar}`,
+      jobTitle: USER.jobTitle,
       description: USER.bio,
+      email: USER.emails.map((item) => item.address),
       sameAs: [
-        "https://github.com/Nether403",
+        "https://github.com/Nether403/",
         "https://www.linkedin.com/in/mvd101/",
-        "https://nether101.nl",
+        "https://www.f6s.com/martin-deursen1",
+        "https://x.com/StackStudio101",
+        "https://here.now/@nether101",
+        "https://TWPF.online",
+        "https://dutchdatalabs.online/",
+        "https://portfolio.twpf.online",
+        "https://portfolio.the1o1.one",
+        "https://portal.101dev.xyz/",
       ],
     },
   };

@@ -1,4 +1,5 @@
 import { FlipSentences } from "@/components/flip-sentences";
+import { Tag } from "@/components/ui/tag";
 import { SimpleTooltip } from "@/components/ui/tooltip";
 import { USER } from "@/features/profile/data/user";
 import { cn } from "@/lib/utils";
@@ -66,6 +67,13 @@ export function ProfileHeader() {
               </>
             )}
           </h1>
+
+          <div className="flex flex-wrap items-center gap-2 border-t border-edge px-4 py-1.5">
+            <Tag>{USER.displayNameTag}</Tag>
+            <span className="text-sm text-muted-foreground">
+              {USER.jobTitle}
+            </span>
+          </div>
 
           <div className="h-12 border-t border-edge py-1 pl-4 sm:h-auto">
             <FlipSentences sentences={USER.flipSentences} />

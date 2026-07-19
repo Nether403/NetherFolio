@@ -3,6 +3,8 @@ export type User = {
   lastName: string;
   /** Preferred public-facing name */
   displayName: string;
+  /** Spaced / searchable name variant shown as a tag */
+  displayNameTag: string;
   /** Handle/username used in links or mentions */
   username: string;
   /** e.g. "male", "female", "non-binary" */
@@ -14,10 +16,14 @@ export type User = {
   flipSentences: string[];
   /** General location for display */
   address: string;
-  /** E.164 format, base64 encoded (https://t.io.vn/base64-string-converter) */
-  phoneNumber: string;
-  /** base64 encoded (https://t.io.vn/base64-string-converter) */
+  /** Primary email, base64 encoded (https://t.io.vn/base64-string-converter) */
   email: string;
+  /** Additional public emails (plain text for display / mailto) */
+  emails: {
+    label: string;
+    address: string;
+    primary?: boolean;
+  }[];
   /** Personal/homepage URL */
   website: string;
   /** Primary/current role shown on profile */
