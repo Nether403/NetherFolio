@@ -27,9 +27,9 @@ export function FlipSentences({
       <AnimatePresence mode="wait">
         <motion.div
           key={index}
-          initial={{ y: 18, opacity: 0, filter: "blur(3px)" }}
-          animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
-          exit={{ y: -18, opacity: 0, filter: "blur(3px)" }}
+          initial={{ y: 18, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          exit={{ y: -18, opacity: 0 }}
           transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
           className="flex h-full items-center font-mono text-sm text-brand"
         >

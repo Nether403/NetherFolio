@@ -18,15 +18,19 @@ export function ProfileHeader() {
     <div className="screen-line-after relative flex border-x border-edge bg-card/70 backdrop-blur-[2px]">
       <div className="relative shrink-0 border-r border-edge">
         <div className="mx-[2px] my-[3px]">
-          <motion.img
-            className="size-32 rounded-full ring-2 ring-brand/35 ring-offset-2 ring-offset-background select-none sm:size-40"
-            alt={`${USER.displayName}'s avatar`}
-            src={USER.avatar}
-            fetchPriority="high"
+          <motion.div
             initial={reduceMotion ? false : { opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
-          />
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              className="size-32 rounded-full ring-2 ring-brand/35 ring-offset-2 ring-offset-background select-none sm:size-40"
+              alt={`${USER.displayName}'s avatar`}
+              src={USER.avatar}
+              fetchPriority="high"
+            />
+          </motion.div>
         </div>
 
         <SimpleTooltip content="I'm from the Netherlands">

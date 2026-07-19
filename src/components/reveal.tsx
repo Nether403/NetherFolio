@@ -16,16 +16,13 @@ export function Reveal({
 }) {
   const reduceMotion = useReducedMotion();
 
-  if (reduceMotion) {
-    return <div className={className}>{children}</div>;
-  }
-
+  // Always render the same element type to avoid hydration mismatches.
   return (
     <motion.div
       className={cn(className)}
-      initial={{ opacity: 0, y: 16 }}
+      initial={reduceMotion ? false : { opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
+      viewport={{ once: true, margin: "-40px", amount: 0.1 }}
       transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1], delay }}
     >
       {children}
