@@ -18,7 +18,7 @@ export function SiteHeader() {
   return (
     <SiteHeaderWrapper
       className={cn(
-        "sticky top-0 z-50 max-w-screen overflow-x-hidden bg-background/80 px-2 pt-2 backdrop-blur-md",
+        "sticky top-0 z-50 max-w-screen overflow-x-clip bg-background/80 px-2 pt-2 backdrop-blur-md",
         "data-[affix=true]:bg-background/90",
         "data-[affix=true]:shadow-[0_8px_24px_0_oklch(0.3_0.04_245/0.08)] dark:data-[affix=true]:shadow-[0_8px_24px_0_oklch(0_0_0/0.35)]",
         "not-dark:data-[affix=true]:**:data-header-container:after:bg-border",

@@ -226,11 +226,11 @@
   }
 
   html {
-    @apply motion-safe:scroll-smooth;
+    @apply motion-safe:scroll-smooth overflow-x-clip;
   }
 
   body {
-    @apply bg-background font-sans text-foreground antialiased;
+    @apply bg-background font-sans text-foreground antialiased overflow-x-clip;
     font-synthesis-weight: none;
     text-rendering: optimizeLegibility;
     background-image:

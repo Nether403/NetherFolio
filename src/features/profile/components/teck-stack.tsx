@@ -104,7 +104,9 @@ export function TeckStack() {
             }
 
             const src = local ? local.src : iconUrl(slug);
-            const invertInDark = Boolean(tech.theme) && !local;
+            // jsDelivr simple-icons are monochrome black; invert in dark mode
+            // so they stay visible on the coastal-forge background.
+            const isRemoteMono = Boolean(slug) && !local;
 
             return (
               <li key={tech.key} className="flex">
@@ -120,7 +122,7 @@ export function TeckStack() {
                       alt={`${tech.title} icon`}
                       width={32}
                       height={32}
-                      className={cn(invertInDark && "dark:invert")}
+                      className={cn(isRemoteMono && "dark:invert")}
                       unoptimized
                     />
                     <span className="sr-only">{tech.title}</span>
