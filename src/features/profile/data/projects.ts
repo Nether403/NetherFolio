@@ -40,6 +40,32 @@ https://github.com/Nether403/RepoGuardian
     isExpanded: true,
   },
   {
+    id: "spritegamegen",
+    title: "SpriteGameGen",
+    period: {
+      start: "07.2026",
+    },
+    link: "https://github.com/Nether403/SpriteGameGen",
+    skills: [
+      "Game development",
+      "Sprites",
+      "MCP server",
+      "Python",
+      "React",
+      "AI assets",
+    ],
+    description: `Local-first AI sprite & game asset workbench — text prompts (and optional reference images) become reusable animation clips and versioned engine-ready bundles.
+
+- FastAPI + deterministic image pipeline (repair, palettes, sprite-sheet packing, Godot resources)
+- React/Vite client with Azure GPT Image, Gemini/Vertex, or loopback ComfyUI backends
+- Bundled local MCP server and agent skills for game-dev workflows
+
+https://github.com/Nether403/SpriteGameGen
+`,
+    logo: "/icons/projects/github.svg",
+    isExpanded: true,
+  },
+  {
     id: "twpf",
     title: "The Witness Protocol Foundation",
     period: {

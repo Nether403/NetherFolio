@@ -76,6 +76,7 @@ Research and design work live in separate portfolios (linked below). Past experi
     "The Witness Protocol Foundation",
     "TWPF",
     "RepoGuardian",
+    "SpriteGameGen",
     "Metal Marines Reborn",
     "G_5.2",
     "AI-assisted developer",
