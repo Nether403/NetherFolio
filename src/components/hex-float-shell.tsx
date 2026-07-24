@@ -16,7 +16,7 @@ type HexFloatShellProps = {
 export function HexFloatShell({ children }: HexFloatShellProps) {
   return (
     <HexFloat
-      className="h-svh w-full"
+      className="h-[calc(100svh-3.75rem)] w-full"
       size={148}
       gap={1}
       bevel={1.25}
