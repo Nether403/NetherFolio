@@ -24,7 +24,6 @@
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
     "dayjs": "^1.11.13",
-    "html-in-canvas-polyfill": "^1.0.1",
     "lucide-react": "^0.516.0",
     "motion": "^12.18.1",
     "next": "16.1.6",

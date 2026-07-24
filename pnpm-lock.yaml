@@ -35,9 +35,6 @@ importers:
       dayjs:
         specifier: ^1.11.13
         version: 1.11.19
-      html-in-canvas-polyfill:
-        specifier: ^1.0.1
-        version: 1.0.1
       lucide-react:
         specifier: ^0.516.0
         version: 0.516.0(react@19.1.1)
@@ -2494,9 +2491,6 @@ packages:
   hastscript@9.0.1:
     resolution: {integrity: sha512-g7df9rMFX/SPi34tyGCyUBREQoKkapwdY/T04Qn9TDWfHhAYt4/I0gMVirzK5wEzeUqIjEB+LXC/ypb7Aqno5w==}
 
-  html-in-canvas-polyfill@1.0.1:
-    resolution: {integrity: sha512-pOxqPqBNACM48304bYYBZMBTmcsxByyji32P/GQpr9MmQWbCsyIRAkxnjERuB1okKKunQr1tZvbOq0AxyRNC7w==}
-
   html-url-attributes@3.0.1:
     resolution: {integrity: sha512-ol6UPyBWqsrO6EJySPz2O7ZSr856WDrEzM5zMqp+FJJLGMW35cLYmmZnl0vztAZxRUoNZJFTCohfjuIJ8I4QBQ==}
 
@@ -3755,14 +3749,6 @@ packages:
   tapable@2.3.0:
     resolution: {integrity: sha512-g9ljZiwki/LfxmQADO3dEY1CbpmXT5Hm2fJ+QaGKwSXUylMybePR7/67YW7jOrrvjEgL1Fmz5kzyAjWVWLlucg==}
     engines: {node: '>=6'}
-
-  three-html-render@0.1.2:
-    resolution: {integrity: sha512-JHx6x006LuLcHMRg+X3DyrrbPVsXklhFJGBtpTULFhbnpK7DidgGr6dJ6aTEaN9sc6uFgwI0VHExEYo4qwVSug==}
-    peerDependencies:
-      three: '>=0.150.0'
-    peerDependenciesMeta:
-      three:
-        optional: true
 
   throttle-debounce@3.0.1:
     resolution: {integrity: sha512-dTEWWNu6JmeVXY0ZYoPuH5cRIwc0MeGbJwah9KUNYSJwommQpCzTySTpEe8Gs1J23aeWEuAobe4Ag7EHVt/LOg==}
@@ -6464,12 +6450,6 @@ snapshots:
       property-information: 7.1.0
       space-separated-tokens: 2.0.2
 
-  html-in-canvas-polyfill@1.0.1:
-    dependencies:
-      three-html-render: 0.1.2
-    transitivePeerDependencies:
-      - three
-
   html-url-attributes@3.0.1: {}
 
   html-void-elements@3.0.0: {}
@@ -8122,8 +8102,6 @@ snapshots:
   tailwindcss@4.1.18: {}
 
   tapable@2.3.0: {}
-
-  three-html-render@0.1.2: {}
 
   throttle-debounce@3.0.1: {}
 
