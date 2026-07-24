@@ -45,7 +45,7 @@ export function ProfileCover() {
           transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: 0.12 }}
         >
           <DitheredObject
-            src="/models/cover-mark.glb"
+            src="/models/MvD.glb"
             className="size-full"
             // Coastal teal accent — matches --brand / --ring
             highlight="#2a9aaa"
@@ -54,7 +54,7 @@ export function ProfileCover() {
             dither
             gridSize={3}
             pixelSizeRatio={1}
-            scale={2.6}
+            scale={2.8}
             floatIntensity={reduceMotion ? 0 : 1.2}
             rotationIntensity={reduceMotion ? 0 : 0.7}
             floatSpeed={1.4}
