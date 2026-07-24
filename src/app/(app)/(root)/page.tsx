@@ -1,7 +1,6 @@
 import dayjs from "dayjs";
 import type { ProfilePage as PageSchema, WithContext } from "schema-dts";
 
-import { HexFloatShell } from "@/components/hex-float-shell";
 import { Reveal } from "@/components/reveal";
 import { SITE_INFO } from "@/config/site";
 import { About } from "@/features/profile/components/about";
@@ -27,55 +26,53 @@ export default function Page() {
         }}
       />
 
-      <HexFloatShell>
-        <div className="mx-auto md:max-w-3xl">
-          {/* One hero composition: brand cover + identity */}
-          <div className="relative">
-            <ProfileCover />
-            <ProfileHeader />
-          </div>
-          <Separator />
-
-          <Reveal>
-            <SocialLinks />
-          </Reveal>
-          <Separator />
-
-          <Reveal delay={0.04}>
-            <About />
-          </Reveal>
-          <Separator />
-
-          <Reveal delay={0.06}>
-            <Projects />
-          </Reveal>
-          <Separator />
-
-          <Reveal delay={0.04}>
-            <Contact />
-          </Reveal>
-          <Separator />
-
-          <Reveal>
-            <PortfolioLinks />
-          </Reveal>
-          <Separator />
-
-          <Reveal>
-            <GitHubContributions />
-          </Reveal>
-          <Separator />
-
-          <Reveal>
-            <TeckStack />
-          </Reveal>
-          <Separator />
-
-          <Reveal>
-            <Blog />
-          </Reveal>
+      <div className="mx-auto md:max-w-3xl">
+        {/* One hero composition: brand cover + identity */}
+        <div className="relative">
+          <ProfileCover />
+          <ProfileHeader />
         </div>
-      </HexFloatShell>
+        <Separator />
+
+        <Reveal>
+          <SocialLinks />
+        </Reveal>
+        <Separator />
+
+        <Reveal delay={0.04}>
+          <About />
+        </Reveal>
+        <Separator />
+
+        <Reveal delay={0.06}>
+          <Projects />
+        </Reveal>
+        <Separator />
+
+        <Reveal delay={0.04}>
+          <Contact />
+        </Reveal>
+        <Separator />
+
+        <Reveal>
+          <PortfolioLinks />
+        </Reveal>
+        <Separator />
+
+        <Reveal>
+          <GitHubContributions />
+        </Reveal>
+        <Separator />
+
+        <Reveal>
+          <TeckStack />
+        </Reveal>
+        <Separator />
+
+        <Reveal>
+          <Blog />
+        </Reveal>
+      </div>
     </>
   );
 }
