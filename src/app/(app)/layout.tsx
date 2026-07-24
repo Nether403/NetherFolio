@@ -1,5 +1,6 @@
 import dynamic from "next/dynamic";
 
+import { LaserShell } from "@/components/laser-shell";
 import { SiteHeader } from "@/components/site-header";
 
 const ScrollTop = dynamic(() =>
@@ -12,7 +13,9 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       <SiteHeader />
       {/* overflow-x-clip (not hidden): overflow-x-hidden forces overflow-y:auto
           and creates a nested vertical scrollbar that steals wheel scroll. */}
-      <main className="max-w-screen overflow-x-clip px-2">{children}</main>
+      <main className="max-w-screen overflow-x-clip px-2">
+        <LaserShell>{children}</LaserShell>
+      </main>
       <ScrollTop />
     </>
   );
