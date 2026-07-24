@@ -29,48 +29,89 @@ function PageChrome({ children }: { children: ReactNode }) {
 }
 
 /**
- * Full-page HexFloat shell so header + content map onto the hex tiles.
- * Polyfill is loaded client-only (it touches DOM globals and breaks SSR).
+ * Progressive HexFloat:
+ * 1) Instant plain page
+ * 2) After idle, warm HexFloat under a readable overlay
+ * 3) Swap to hex tiles once the first snapshot is ready (no white void)
  */
 export function AppShell({ children }: AppShellProps) {
-  const [hexReady, setHexReady] = useState(false);
+  const [effectOn, setEffectOn] = useState(false);
+  const [tilesReady, setTilesReady] = useState(false);
 
   useEffect(() => {
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (reduceMotion) return;
+
     let cancelled = false;
-    void import("html-in-canvas-polyfill").then(() => {
-      if (!cancelled) setHexReady(true);
-    });
+    let idleId = 0;
+    let timeoutId = 0;
+
+    const enable = () => {
+      void import("html-in-canvas-polyfill").then(() => {
+        if (!cancelled) setEffectOn(true);
+      });
+    };
+
+    timeoutId = window.setTimeout(() => {
+      if (typeof window.requestIdleCallback === "function") {
+        idleId = window.requestIdleCallback(enable, { timeout: 2000 });
+      } else {
+        enable();
+      }
+    }, 700);
+
     return () => {
       cancelled = true;
+      window.clearTimeout(timeoutId);
+      if (idleId && typeof window.cancelIdleCallback === "function") {
+        window.cancelIdleCallback(idleId);
+      }
     };
   }, []);
 
-  if (!hexReady) {
-    return <PageChrome>{children}</PageChrome>;
-  }
+  const showReadableOverlay = !effectOn || !tilesReady;
 
   return (
-    <HexFloat
-      className="h-svh w-full bg-background"
-      size={128}
-      gap={1.5}
-      bevel={1.5}
-      tilt={18}
-      perspective={0.48}
-      float={0.4}
-      speed={0.9}
-      shine={0.4}
-      lift={0.35}
-      radius={1000}
-      flow={1.1}
-      swirl={4}
-      trail={0.5}
-      iridescence={0.08}
-      bloom={0}
-      grain={0.18}
-      gapColor={[0.08, 0.14, 0.16]}
-    >
-      <PageChrome>{children}</PageChrome>
-    </HexFloat>
+    <div className="relative h-svh w-full bg-background">
+      {effectOn ? (
+        <HexFloat
+          className="absolute inset-0 h-full w-full bg-background"
+          size={168}
+          gap={1}
+          bevel={1.25}
+          tilt={14}
+          perspective={0.36}
+          float={0.12}
+          speed={0.75}
+          shine={0.28}
+          lift={0.18}
+          radius={820}
+          flow={0.55}
+          swirl={1.5}
+          trail={0.25}
+          iridescence={0.06}
+          bloom={0}
+          grain={0}
+          gapColor={[0.08, 0.14, 0.16]}
+          onContentReady={() => setTilesReady(true)}
+        >
+          <PageChrome>{children}</PageChrome>
+        </HexFloat>
+      ) : null}
+
+      {showReadableOverlay ? (
+        <div
+          className={
+            effectOn
+              ? "absolute inset-0 z-20 overflow-auto bg-background"
+              : "h-full overflow-auto"
+          }
+        >
+          <PageChrome>{children}</PageChrome>
+        </div>
+      ) : null}
+    </div>
   );
 }

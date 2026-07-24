@@ -43,6 +43,8 @@ export interface HexFloatOptions {
   grain?: number;
   /** Seam color as [r, g, b] in 0-1 range, or "auto" to derive a dark seam from the page background. */
   gapColor?: [number, number, number] | "auto";
+  /** Fires once the first page snapshot is on the hex tiles (avoids a blank white cover). */
+  onContentReady?: (() => void) | null;
 }
 
 export interface HexFloatElements {
@@ -81,6 +83,7 @@ const DEFAULTS: Required<HexFloatOptions> = {
   bloom: 0,
   grain: 0.8,
   gapColor: "auto",
+  onContentReady: null,
 };
 
 type PaintableCanvas = HTMLCanvasElement & {
@@ -1180,8 +1183,15 @@ export function createHexFloat(
     bg = [1, 1, 1];
   }
 
+  const usingPolyfill = Boolean(
+    (window as Window & { __HTML_IN_CANVAS_POLYFILL__?: boolean })
+      .__HTML_IN_CANVAS_POLYFILL__
+  );
+  // Polyfill rasterization is expensive — keep GPU resolution modest.
+  const maxDpr = usingPolyfill ? 1.25 : 2;
+
   function syncCanvasSize() {
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    const dpr = Math.min(window.devicePixelRatio || 1, maxDpr);
     const width = Math.max(1, Math.round(output.clientWidth * dpr));
     const height = Math.max(1, Math.round(output.clientHeight * dpr));
     if (output.width !== width || output.height !== height) {
@@ -1206,9 +1216,23 @@ export function createHexFloat(
   syncBgColor();
   syncCanvasSize();
 
+  let hasContentTexture = false;
+  let lastUploadAt = 0;
+  const minUploadIntervalMs = usingPolyfill ? 120 : 0;
+
+  // Keep the WebGL layer invisible until the first page snapshot lands,
+  // otherwise an empty white hex floor covers the readable HTML.
+  output.style.opacity = "0";
+  output.style.transition = "opacity 280ms ease";
+
   function uploadContent() {
     if (!htmlInCanvas || !contentDirty) return;
+    const now = performance.now();
+    if (now - lastUploadAt < minUploadIntervalMs && hasContentTexture) {
+      return;
+    }
     contentDirty = false;
+    lastUploadAt = now;
     gl!.bindTexture(gl!.TEXTURE_2D, contentTexture);
     gl!.texImage2D(
       gl!.TEXTURE_2D,
@@ -1218,6 +1242,11 @@ export function createHexFloat(
       gl!.UNSIGNED_BYTE,
       source
     );
+    if (!hasContentTexture) {
+      hasContentTexture = true;
+      output.style.opacity = "1";
+      config.onContentReady?.();
+    }
   }
 
   let time = 0;
@@ -1269,7 +1298,7 @@ export function createHexFloat(
       content.scrollTop * dpr
     );
     gl!.uniform1f(uniforms.uTime, time);
-    gl!.uniform1f(uniforms.uHasContent, htmlInCanvas ? 1 : 0);
+    gl!.uniform1f(uniforms.uHasContent, hasContentTexture ? 1 : 0);
     gl!.uniform1f(uniforms.uMaxX, contentMaxX);
     gl!.uniform3f(uniforms.uBg, bg[0], bg[1], bg[2]);
     gl!.uniform3f(uniforms.uGapColor, seam[0], seam[1], seam[2]);
