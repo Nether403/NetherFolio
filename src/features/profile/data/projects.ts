@@ -17,7 +17,7 @@ Includes:
 
 https://dutchdatalabs.online/
 `,
-    logo: "https://www.google.com/s2/favicons?domain=dutchdatalabs.online&sz=64",
+    logo: "/icons/projects/dutchdatalabs.png",
     isExpanded: true,
   },
   {
@@ -36,7 +36,33 @@ https://dutchdatalabs.online/
 https://RepoGuardian.101dev.xyz  
 https://github.com/Nether403/RepoGuardian
 `,
-    logo: "https://www.google.com/s2/favicons?domain=repoguardian.101dev.xyz&sz=64",
+    logo: "/icons/projects/repoguardian.svg",
+    isExpanded: true,
+  },
+  {
+    id: "spritegamegen",
+    title: "SpriteGameGen",
+    period: {
+      start: "07.2026",
+    },
+    link: "https://github.com/Nether403/SpriteGameGen",
+    skills: [
+      "Game development",
+      "Sprites",
+      "MCP server",
+      "Python",
+      "React",
+      "AI assets",
+    ],
+    description: `Local-first AI sprite & game asset workbench — text prompts (and optional reference images) become reusable animation clips and versioned engine-ready bundles.
+
+- FastAPI + deterministic image pipeline (repair, palettes, sprite-sheet packing, Godot resources)
+- React/Vite client with Azure GPT Image, Gemini/Vertex, or loopback ComfyUI backends
+- Bundled local MCP server and agent skills for game-dev workflows
+
+https://github.com/Nether403/SpriteGameGen
+`,
+    logo: "/icons/projects/github.svg",
     isExpanded: true,
   },
   {
@@ -53,7 +79,7 @@ Also featured on the [Research portfolio](https://portfolio.twpf.online).
 
 https://TWPF.online
 `,
-    logo: "https://www.google.com/s2/favicons?domain=twpf.online&sz=64",
+    logo: "/icons/projects/twpf.png",
     isExpanded: true,
   },
   {
@@ -68,7 +94,7 @@ https://TWPF.online
 
 https://github.com/Nether403/G_5.2
 `,
-    logo: "https://cdn.simpleicons.org/github",
+    logo: "/icons/projects/github.svg",
     isExpanded: false,
   },
   {
@@ -83,7 +109,7 @@ https://github.com/Nether403/G_5.2
 
 https://github.com/Nether403/Metal-Marines-Reborn
 `,
-    logo: "https://cdn.simpleicons.org/github",
+    logo: "/icons/projects/github.svg",
     isExpanded: false,
   },
   {
@@ -99,7 +125,7 @@ https://github.com/Nether403/Metal-Marines-Reborn
 
 https://stackstudio.pro
 `,
-    logo: "https://www.google.com/s2/favicons?domain=stackstudio.pro&sz=64",
+    logo: "/icons/projects/stackstudio.png",
     isExpanded: false,
   },
 ];

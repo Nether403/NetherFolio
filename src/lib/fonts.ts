@@ -1,10 +1,11 @@
 import {
-  IBM_Plex_Mono as FontMono,
-  IBM_Plex_Sans as FontSans,
+  JetBrains_Mono as FontMono,
+  Manrope as FontSans,
+  Syne as FontDisplay,
 } from "next/font/google";
 
 export const fontSans = FontSans({
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
   subsets: ["latin"],
   variable: "--font-sans",
@@ -15,4 +16,11 @@ export const fontMono = FontMono({
   display: "swap",
   subsets: ["latin"],
   variable: "--font-mono",
+});
+
+export const fontDisplay = FontDisplay({
+  weight: ["500", "600", "700", "800"],
+  display: "swap",
+  subsets: ["latin"],
+  variable: "--font-display",
 });

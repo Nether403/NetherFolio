@@ -39,11 +39,16 @@ const LOCAL_ICONS: Record<
   { src: string } | { light: string; dark: string }
 > = {
   ps: { src: "/icons/photoshop.svg" },
-  chatgpt: { light: "/icons/chatgpt-light.svg", dark: "/icons/chatgpt-dark.svg" },
+  chatgpt: {
+    light: "/icons/chatgpt-light.svg",
+    dark: "/icons/chatgpt-dark.svg",
+  },
 };
 
-const iconUrl = (slug: string, color?: string) =>
-  `https://cdn.simpleicons.org/${slug}${color ? `/${color}` : ""}`;
+// jsDelivr serves CORP: cross-origin (cdn.simpleicons.org is blocked under
+// Hostinger's stricter cross-origin policies).
+const iconUrl = (slug: string) =>
+  `https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/${slug}.svg`;
 
 export function TeckStack() {
   return (
@@ -65,17 +70,43 @@ export function TeckStack() {
             const slug = SIMPLEICON_SLUG[tech.key];
             if (!local && !slug) return null;
 
-            const lightSrc = local
-              ? "light" in local
-                ? local.light
-                : local.src
-              : iconUrl(slug, tech.theme ? "000000" : undefined);
-            const darkSrc = local
-              ? "dark" in local
-                ? local.dark
-                : local.src
-              : iconUrl(slug, tech.theme ? "ffffff" : undefined);
-            const isThemed = tech.theme || (local && "light" in local);
+            if (local && "light" in local) {
+              return (
+                <li key={tech.key} className="flex">
+                  <SimpleTooltip content={tech.title}>
+                    <a
+                      href={tech.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={tech.title}
+                    >
+                      <Image
+                        src={local.light}
+                        alt={`${tech.title} icon`}
+                        width={32}
+                        height={32}
+                        className="hidden [html.light_&]:block"
+                        unoptimized
+                      />
+                      <Image
+                        src={local.dark}
+                        alt={`${tech.title} icon`}
+                        width={32}
+                        height={32}
+                        className="hidden [html.dark_&]:block"
+                        unoptimized
+                      />
+                      <span className="sr-only">{tech.title}</span>
+                    </a>
+                  </SimpleTooltip>
+                </li>
+              );
+            }
+
+            const src = local ? local.src : iconUrl(slug);
+            // jsDelivr simple-icons are monochrome black; invert in dark mode
+            // so they stay visible on the coastal-forge background.
+            const isRemoteMono = Boolean(slug) && !local;
 
             return (
               <li key={tech.key} className="flex">
@@ -86,34 +117,14 @@ export function TeckStack() {
                     rel="noopener noreferrer"
                     aria-label={tech.title}
                   >
-                    {isThemed ? (
-                      <>
-                        <Image
-                          src={lightSrc}
-                          alt={`${tech.title} icon`}
-                          width={32}
-                          height={32}
-                          className="hidden [html.light_&]:block"
-                          unoptimized
-                        />
-                        <Image
-                          src={darkSrc}
-                          alt={`${tech.title} icon`}
-                          width={32}
-                          height={32}
-                          className="hidden [html.dark_&]:block"
-                          unoptimized
-                        />
-                      </>
-                    ) : (
-                      <Image
-                        src={lightSrc}
-                        alt={`${tech.title} icon`}
-                        width={32}
-                        height={32}
-                        unoptimized
-                      />
-                    )}
+                    <Image
+                      src={src}
+                      alt={`${tech.title} icon`}
+                      width={32}
+                      height={32}
+                      className={cn(isRemoteMono && "dark:invert")}
+                      unoptimized
+                    />
                     <span className="sr-only">{tech.title}</span>
                   </a>
                 </SimpleTooltip>
