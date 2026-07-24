@@ -2,27 +2,39 @@ import type { SocialLink } from "../types/social-links";
 
 export const SOCIAL_LINKS: SocialLink[] = [
   {
-    icon: "https://www.google.com/s2/favicons?sz=128&domain=linkedin.com",
+    icon: "/icons/social/linkedin.svg",
     title: "LinkedIn",
-    description: "MvD101",
-    href: "https://www.linkedin.com/in/mvd101",
+    description: "mvd101",
+    href: "https://www.linkedin.com/in/mvd101/",
   },
   {
-    icon: "https://cdn.simpleicons.org/github",
+    icon: "/icons/social/github.svg",
     title: "GitHub",
-    description: "Nether403 F.K.A 101",
-    href: "https://github.com/Nether403",
+    description: "Nether403",
+    href: "https://github.com/Nether403/",
   },
   {
-    icon: "https://cdn.simpleicons.org/x",
-    title: "X (Formerly Twitter)",
+    icon: "/icons/social/x.svg",
+    title: "X",
     description: "@StackStudio101",
     href: "https://x.com/StackStudio101",
   },
   {
-    icon: "https://cdn.simpleicons.org/dailydotdev/CE3DF3",
-    title: "daily.dev",
+    icon: "/icons/social/herenow.png",
+    title: "here.now",
     description: "@nether101",
-    href: "https://app.daily.dev/nether101",
+    href: "https://here.now/@nether101",
+  },
+  {
+    icon: "/icons/social/f6s.png",
+    title: "F6S",
+    description: "martin-deursen1",
+    href: "https://www.f6s.com/martin-deursen1",
+  },
+  {
+    icon: "/icons/social/email.svg",
+    title: "Email",
+    description: "Martin@101dev.xyz",
+    href: "mailto:Martin@101dev.xyz",
   },
 ];

@@ -18,14 +18,15 @@ export function SiteHeader() {
   return (
     <SiteHeaderWrapper
       className={cn(
-        "sticky top-0 z-50 max-w-screen overflow-x-hidden bg-background px-2 pt-2",
-        "data-[affix=true]:shadow-[0_0_16px_0_black]/8 dark:data-[affix=true]:shadow-[0_0_16px_0_black]/80",
+        "sticky top-0 z-50 max-w-screen overflow-x-clip bg-background/80 px-2 pt-2 backdrop-blur-md",
+        "data-[affix=true]:bg-background/90",
+        "data-[affix=true]:shadow-[0_8px_24px_0_oklch(0.3_0.04_245/0.08)] dark:data-[affix=true]:shadow-[0_8px_24px_0_oklch(0_0_0/0.35)]",
         "not-dark:data-[affix=true]:**:data-header-container:after:bg-border",
-        "transition-shadow duration-300"
+        "transition-[background-color,box-shadow] duration-300"
       )}
     >
       <div
-        className="screen-line-before screen-line-after mx-auto flex h-12 items-center justify-between gap-2 border-x border-edge px-2 after:z-1 after:transition-[background-color] sm:gap-4 md:max-w-3xl"
+        className="screen-line-before screen-line-after mx-auto flex h-12 items-center justify-between gap-2 border-x border-edge bg-card/40 px-2 after:z-1 after:transition-[background-color] sm:gap-4 md:max-w-3xl"
         data-header-container
       >
         <Link href="/" aria-label="Home" className="h-8 w-16">

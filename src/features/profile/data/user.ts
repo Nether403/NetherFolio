@@ -1,45 +1,66 @@
 import type { User } from "@/features/profile/types/user";
 
 export const USER: User = {
-  firstName: "Martin vanDeursen",
+  firstName: "Martin",
   lastName: "vanDeursen",
   displayName: "Martin vanDeursen",
-  username: "Nether101",
+  displayNameTag: "Martin van Deursen",
+  username: "Nether403",
   gender: "male",
   pronouns: "he/him",
-  bio: "AI alignment researcher, design engineer, and solo developer based in Haarlem, Netherlands. Building transparent AI auditing frameworks, interactive alignment tools, and thoughtful digital experiences.",
+  bio: "Founder of Dutch Data Labs and The Witness Protocol Foundation. AI-assisted developer based in Haarlem, Netherlands — shipping tools, startups, and open-source projects.",
   flipSentences: [
     "Prompt/Context/Design Engineer",
     "The AI-whatever-guy",
     "Tinkerer",
   ],
   address: "Haarlem, The Netherlands",
-  phoneNumber: "KzMxNjgxNDc4Mjk5", // E.164 format, base64 encoded (https://t.io.vn/base64-string-converter)
-  email: "TWFydGluQFJlYWxtMTAxLmNvbQ==", // base64 encoded
-  website: "https://Nether101.nl",
-  jobTitle: "Design Engineer",
+  email: "TWFydGluQDEwMWRldi54eXo=", // Martin@101dev.xyz
+  emails: [
+    {
+      label: "Dev",
+      address: "Martin@101dev.xyz",
+      primary: true,
+    },
+    {
+      label: "Dutch Data Labs",
+      address: "Martin@Dutchdatalabs.online",
+    },
+    {
+      label: "TWPF",
+      address: "Founder@twpf.online",
+    },
+  ],
+  website: "https://portfolio.101dev.xyz",
+  jobTitle: "Founder · Dutch Data Labs & The Witness Protocol",
   jobs: [
     {
-      title: "Project Lead on Stackstudio platform",
-      company: "Realm101",
-      website: "https://Realm101.com",
+      title: "Founder",
+      company: "Dutch Data Labs",
+      website: "https://dutchdatalabs.online/",
     },
     {
       title: "Founder",
-      company: "ThewitnessProtocol",
-      website: "https://Witnessprotocol.online",
+      company: "The Witness Protocol Foundation",
+      website: "https://TWPF.online",
+    },
+    {
+      title: "Former Project Lead",
+      company: "StackStudio",
+      website: "https://stackstudio.pro",
     },
   ],
   about: `
-Hello I'm Martin an AI-assisted solo developer and design engineer 
+I'm Martin — an AI-assisted solo developer and founder based in Haarlem.
 
-I started in consultancy and project management and pivoted hard into AI when it became obvious that "how we learn and build" was about to change. 
-I lean on AI where it's strong, and obsess somewhat over the design phase and thoughtful UI systems. 
-Product design (shadcn/ui, motion), WebGL/visuals, Recently fell in love with Unicorn.studio. 
+I build practical software with modern AI tooling: Cursor, rapid prototyping, and careful product design. This site is my **development portfolio** — the place for shipped code, tools, and startups.
 
-AI-assisted dev (Cursor, Kiro, Lovable, Bubble), rapid prototyping, prompt/context engineering, research UX (consent, datasheets, rubrics). When it's safety-adjacent, I ship receipts: datasheets, timestamp hashes, inter-rater agreement, and explicit non-commercial posture.
+Current focus:
+- **[Dutch Data Labs](https://dutchdatalabs.online/)** — a new startup exploring social and debate products ([F-socials](https://github.com/Nether403/F-socials), [AIdebate](https://github.com/Nether403/AIdebate))
+- **[The Witness Protocol Foundation](https://TWPF.online)** — research non-profit for transparent, high-signal AI testimony work
+- **[RepoGuardian](https://RepoGuardian.101dev.xyz)** — supervised GitHub fleet triage and maintenance
 
-Currently working on Realm101.com 's StackStudio, a builder's ecosystem that simplifies stack choices and turns briefs into shippable plans and The Witness Protocol witnessprotocol.info — a research non-profit curating a permissioned, high-signal human testimony corpus (counts and receipts, no hype).
+Research and design work live in separate portfolios (linked below). Past experience includes [StackStudio](https://stackstudio.pro) (no longer active, kept as a portfolio piece).
   `,
   avatar: "/avatar.jpg",
   ogImage: "/MvD.png",
@@ -47,24 +68,22 @@ Currently working on Realm101.com 's StackStudio, a builder's ecosystem that sim
   keywords: [
     "Martin vanDeursen",
     "Martin van Deursen",
-    "Nether101",
     "Nether403",
-    "AI alignment researcher",
-    "AI safety",
-    "AI alignment",
+    "Nether101",
+    "101dev",
+    "Dutch Data Labs",
     "The Witness Protocol",
-    "Witness Protocol",
-    "Disalignment",
-    "Alignment Saga",
-    "Realm101",
-    "StackStudio",
-    "design engineer",
-    "prompt engineering",
-    "AI auditing",
-    "interpretability",
+    "The Witness Protocol Foundation",
+    "TWPF",
+    "RepoGuardian",
+    "SpriteGameGen",
+    "Metal Marines Reborn",
+    "G_5.2",
+    "AI-assisted developer",
+    "Founder",
     "Haarlem Netherlands",
-    "Processo Ergo Sum",
-    "P.E.S.",
+    "portfolio.101dev.xyz",
+    "StackStudio",
   ],
-  dateCreated: "2024-10-20", // YYYY-MM-DD
+  dateCreated: "2024-10-20",
 };

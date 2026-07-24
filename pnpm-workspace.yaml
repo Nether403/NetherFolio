@@ -1,0 +1,29 @@
+# pnpm v11+ reads workspace + config settings from this file
+# (package.json#pnpm and most .npmrc keys are ignored).
+packages:
+  - .
+
+overrides:
+  "@isaacs/brace-expansion": 5.0.1
+  flatted: 3.4.2
+  glob: 11.1.0
+  handlebars: 4.7.9
+  "minimatch@^3": 3.1.4
+  "minimatch@^9": 9.0.7
+  "minimatch@^10": 10.2.3
+  "picomatch@^2": 2.3.2
+  "picomatch@^4": 4.0.4
+  tar: 7.5.11
+
+publicHoistPattern:
+  - "*eslint*"
+  - "*prettier*"
+
+# Hostinger builds with Corepack-pinned pnpm 11.9.0; tolerate minor drift.
+pmOnFail: warn
+
+# Native / bundler postinstall scripts required by Next.js
+allowBuilds:
+  esbuild: true
+  sharp: true
+  unrs-resolver: true

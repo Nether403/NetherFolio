@@ -1,22 +1,22 @@
 {
-  "name": "nether101.nl",
+  "name": "portfolio-101dev",
   "version": "0.1.0",
-  "description": "Personal portfolio and blog for Martin vanDeursen (Nether101).",
-  "homepage": "https://nether101.nl",
+  "description": "Development portfolio and blog for Martin vanDeursen (Nether403).",
+  "homepage": "https://portfolio.101dev.xyz",
   "license": "MIT",
   "scripts": {
     "dev": "next dev -p 5000 -H 0.0.0.0",
     "build": "next build",
     "start": "next start",
     "preview": "next build --turbopack && next start -p 1408",
-    "lint": "next lint",
-    "lint:fix": "next lint --fix",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "check-types": "tsc --noEmit --pretty",
     "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",
     "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",
     "upgrade:next": "npx @next/codemod@latest upgrade latest",
     "upgrade:tailwind": "npx @tailwindcss/upgrade@latest",
-    "prepare": "husky"
+    "prepare": "node -e \"try { require('fs').accessSync('.git'); require('child_process').execSync('husky', { stdio: 'inherit' }) } catch {}\""
   },
   "dependencies": {
     "@bprogress/next": "^3.2.12",
@@ -37,7 +37,8 @@
     "schema-dts": "^1.1.5",
     "sonner": "^2.0.5",
     "swr": "^2.3.3",
-    "tailwind-merge": "^3.3.1"
+    "tailwind-merge": "^3.3.1",
+    "three": "^0.185.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3.3.0",
@@ -46,6 +47,7 @@
     "@types/node": "^20.14.12",
     "@types/react": "19.1.14",
     "@types/react-dom": "19.1.9",
+    "@types/three": "^0.185.1",
     "eslint": "^9.22.0",
     "eslint-config-next": "15.5.4",
     "eslint-config-prettier": "^10.1.1",
@@ -77,23 +79,9 @@
     "@types/react": "19.1.14",
     "@types/react-dom": "19.1.9"
   },
-  "pnpm": {
-    "overrides": {
-      "@isaacs/brace-expansion": "5.0.1",
-      "flatted": "3.4.2",
-      "glob": "11.1.0",
-      "handlebars": "4.7.9",
-      "minimatch@^3": "3.1.4",
-      "minimatch@^9": "9.0.7",
-      "minimatch@^10": "10.2.3",
-      "picomatch@^2": "2.3.2",
-      "picomatch@^4": "4.0.4",
-      "tar": "7.5.11"
-    }
-  },
   "engines": {
-    "node": "20 || >=22",
-    "pnpm": ">=9"
+    "node": ">=22",
+    "pnpm": ">=11"
   },
-  "packageManager": "pnpm@10.10.0"
+  "packageManager": "pnpm@11.9.0"
 }

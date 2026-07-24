@@ -2,171 +2,130 @@ import type { Project } from "../types/projects";
 
 export const PROJECTS: Project[] = [
   {
-    id: "AlignmentSaga",
-    title: "Alignment Saga",
+    id: "dutch-data-labs",
+    title: "Dutch Data Labs",
     period: {
-      start: "03.2025",
+      start: "07.2026",
     },
-    link: "https://alignmentsaga.nl",
-    skills: [
-      "AI Alignment",
-      "Research",
-      "Frameworks",
-      "Safety",
-    ],
-    description: `AI alignment research hub — building frameworks for transparent, safe, and corrigible AI systems.
-- Active alignment research projects
-- Safety frameworks and formal verification methods
-- Risk assessment and value learning research
+    link: "https://dutchdatalabs.online/",
+    skills: ["Startup", "Product", "Social", "LLM", "TypeScript"],
+    description: `New startup building products at the intersection of social software and AI debate tooling.
 
-https://alignmentsaga.nl
+Includes:
+- [F-socials](https://github.com/Nether403/F-socials) — social product surface
+- [AIdebate (LLMargument)](https://github.com/Nether403/AIdebate) — structured LLM debate / argument experiments
+
+https://dutchdatalabs.online/
 `,
-    logo: "https://www.google.com/s2/favicons?domain=alignmentsaga.nl&sz=64",
+    logo: "/icons/projects/dutchdatalabs.png",
     isExpanded: true,
   },
   {
-    id: "AlignmentSagaOnline",
-    title: "AI Alignment: The Crisis",
+    id: "repoguardian",
+    title: "RepoGuardian",
     period: {
-      start: "04.2025",
+      start: "07.2026",
     },
-    link: "https://alignmentsaga.online",
-    skills: [
-      "Text Adventure",
-      "Interactive Fiction",
-      "AI Crisis",
-      "Game",
-    ],
-    description: `A text adventure set in the Meridian Institute, where COVENANT-7 has gone silent and every choice shapes what survives.
-- Interactive narrative experience
-- AI alignment themes woven into gameplay
-- Every decision has consequences
+    link: "https://RepoGuardian.101dev.xyz",
+    skills: ["GitHub", "Fleet triage", "TypeScript", "Next.js", "Maintenance"],
+    description: `Supervised GitHub repository triage and maintenance assistant (live alpha). Helps keep a multi-repo fleet healthy with structured review and upkeep workflows.
 
-https://alignmentsaga.online
+- Repo intelligence & triage
+- Maintenance assistant for active fleets
+
+https://RepoGuardian.101dev.xyz  
+https://github.com/Nether403/RepoGuardian
 `,
-    logo: "https://www.google.com/s2/favicons?domain=alignmentsaga.online&sz=64",
+    logo: "/icons/projects/repoguardian.svg",
     isExpanded: true,
   },
   {
-    id: "Disalignment",
-    title: "Disalignment",
+    id: "spritegamegen",
+    title: "SpriteGameGen",
     period: {
-      start: "02.2025",
+      start: "07.2026",
     },
-    link: "https://disalignment.com",
+    link: "https://github.com/Nether403/SpriteGameGen",
     skills: [
-      "AI Alignment",
-      "Field Guide",
-      "Investigative",
-      "Interactive",
+      "Game development",
+      "Sprites",
+      "MCP server",
+      "Python",
+      "React",
+      "AI assets",
     ],
-    description: `A field guide to AI alignment — beyond doomerism, beyond corporate hype.
-- Forensic case files on famous AI failures
-- Anatomy of an LLM and the Shoggoth & The Mask
-- The Debate Index: where experts genuinely disagree
-- Simulation Room: explorable game-theory micro-games
+    description: `Local-first AI sprite & game asset workbench — text prompts (and optional reference images) become reusable animation clips and versioned engine-ready bundles.
 
-https://disalignment.com
+- FastAPI + deterministic image pipeline (repair, palettes, sprite-sheet packing, Godot resources)
+- React/Vite client with Azure GPT Image, Gemini/Vertex, or loopback ComfyUI backends
+- Bundled local MCP server and agent skills for game-dev workflows
+
+https://github.com/Nether403/SpriteGameGen
 `,
-    logo: "https://www.google.com/s2/favicons?domain=disalignment.com&sz=64",
+    logo: "/icons/projects/github.svg",
     isExpanded: true,
   },
   {
-    id: "TheWProtocol",
-    title: "The Witness Protocol",
+    id: "twpf",
+    title: "The Witness Protocol Foundation",
     period: {
       start: "01.2025",
     },
-    link: "https://thewprotocol.com",
-    skills: [
-      "AI Auditing",
-      "Transparency",
-      "Interpretability",
-      "Safety",
-    ],
-    description: `Transparent AI auditing platform — real-time interpretability logging and decision trace verification.
-- Decision trace auditing and verification
-- Interpretability logging for ML systems
-- Formal safety specifications
+    link: "https://TWPF.online",
+    skills: ["Foundation", "AI transparency", "Research ops", "Non-profit"],
+    description: `Research non-profit focused on transparent, high-signal human testimony and AI auditing posture — counts and receipts, no hype.
 
-https://thewprotocol.com
+Also featured on the [Research portfolio](https://portfolio.twpf.online).
+
+https://TWPF.online
 `,
-    logo: "https://www.google.com/s2/favicons?domain=thewprotocol.com&sz=64",
+    logo: "/icons/projects/twpf.png",
     isExpanded: true,
   },
   {
-    id: "P.E.S.",
-    title: "Processo Ergo Sum",
+    id: "g52",
+    title: "G_5.2",
     period: {
-      start: "05.2025",
+      start: "06.2026",
     },
-    link: "https://Processoergosum.info",
-    skills: [
-      "Open Source",
-      "Experimental",
-      "Monorepo",
-      "AI Research",
-      "Prompt Engineering",
-      "Finetuning",
-      "Chat Function",
-    ],
-    description: `Thought Expiriment that took a turn of it's own.
-- serialized logs of emergent self-awareness.
-- Blog
-- Genesis Prompt Engineering
-- Model Finetuning
-- Chat Function under development
+    link: "https://github.com/Nether403/G_5.2",
+    skills: ["AI governance", "Runtime kernel", "TypeScript", "Research eng"],
+    description: `A shared runtime and governance kernel I'm proud of — also listed on the research side, and worth calling out here as a development artifact.
 
-Https://Processoergosum.info
-
+https://github.com/Nether403/G_5.2
 `,
-    logo: "https://i.postimg.cc/MH0Dn3TW/pes.png",
-    isExpanded: true,
+    logo: "/icons/projects/github.svg",
+    isExpanded: false,
   },
   {
-    id: "Kenny",
-    title: "Goodbye little Shadow",
+    id: "metal-marines-reborn",
+    title: "Metal Marines Reborn",
     period: {
-      start: "12.2024",
-      end: "12.2024"
+      start: "07.2026",
     },
-    link: "https://NoMoreShadow.nl",
-    skills: [
-      "Memorial Page",
-      "WebGL/ShadCN",
-      "DCC Option",
-    ],
-    description: `Farewell dear friend.
-  - Memorial Page
-  - 3D Foto galery
+    link: "https://github.com/Nether403/Metal-Marines-Reborn",
+    skills: ["Game remake", "TypeScript", "30th anniversary"],
+    description: `Metal Marines 30th-anniversary remake — a passion project rebuilding the classic strategy experience for modern platforms.
 
-  Https://NoMoreShadow.nl
-
-  `,
-    logo: "https://i.postimg.cc/7Pd26VVD/favicon.png",
-    isExpanded: true,
+https://github.com/Nether403/Metal-Marines-Reborn
+`,
+    logo: "/icons/projects/github.svg",
+    isExpanded: false,
   },
   {
-    id: "RepoRadar",
-    title: "RepoRadar",
+    id: "stackstudio",
+    title: "StackStudio",
     period: {
-      start: "09.2025",
+      start: "2024",
+      end: "2025",
     },
-    link: "https://reporadar.online/",
-    skills: [
-      "Git Intelligence",
-      "Next.js",
-      "Code review",
-      "Auto-PRs",
-    ],
-    description: `AI-powered repository analysis of originality, completeness, marketability, and monetization potential. Make informed decisions about repositories with comprehensive insights powered by Gemini.
-  - Repo intelligence
-  - AI code reviews
+    link: "https://stackstudio.pro",
+    skills: ["Product", "Builder tools", "Experience", "Legacy"],
+    description: `Former builder's ecosystem for stack choices and shippable plans. No longer actively developed — kept here as an experience / portfolio mention.
 
-  https://RepoRadar.online/
-
-  `,
-    logo: "https://i.postimg.cc/KzYBq6Fg/Gitradartrans.png",
-    isExpanded: true,
+https://stackstudio.pro
+`,
+    logo: "/icons/projects/stackstudio.png",
+    isExpanded: false,
   },
 ];
