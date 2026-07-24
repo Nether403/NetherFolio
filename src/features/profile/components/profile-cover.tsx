@@ -39,7 +39,7 @@ export function ProfileCover() {
         </motion.p>
 
         <motion.div
-          className="relative h-28 w-56 sm:h-36 sm:w-72"
+          className="relative h-32 w-64 sm:h-40 sm:w-80"
           initial={reduceMotion ? false : { opacity: 0, scale: 0.92, y: 12 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1], delay: 0.12 }}
@@ -47,24 +47,26 @@ export function ProfileCover() {
           <DitheredObject
             src="/models/MvD.glb"
             className="size-full"
-            // Coastal teal accent — matches --brand / --ring
+            // Coastal teal studio ring — kept soft so Bayer dither keeps edges
             highlight="#2a9aaa"
             background=""
             grayscale
             dither
-            gridSize={3}
+            invert={false}
+            gridSize={4}
             pixelSizeRatio={1}
-            scale={2.8}
-            floatIntensity={reduceMotion ? 0 : 1.2}
-            rotationIntensity={reduceMotion ? 0 : 0.7}
-            floatSpeed={1.4}
+            scale={2.35}
+            floatIntensity={reduceMotion ? 0 : 0.9}
+            rotationIntensity={reduceMotion ? 0 : 0.85}
+            floatSpeed={1.2}
             orbit={false}
             zoom={false}
-            autoRotate={false}
-            cameraDistance={4}
-            fov={55}
-            environmentIntensity={0.14}
-            roughness={0.35}
+            autoRotate={!reduceMotion}
+            autoRotateSpeed={0.6}
+            cameraDistance={4.6}
+            fov={50}
+            environmentIntensity={0.06}
+            roughness={0.6}
           />
           <span className="sr-only">Martin vanDeursen monogram</span>
         </motion.div>
