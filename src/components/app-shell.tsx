@@ -1,9 +1,7 @@
 "use client";
 
-import "html-in-canvas-polyfill";
-
 import dynamic from "next/dynamic";
-import type { ReactNode } from "react";
+import { type ReactNode, useEffect, useState } from "react";
 
 import { HexFloat } from "@/components/canvasui/HexFloat";
 import { SiteHeader } from "@/components/site-header";
@@ -16,12 +14,41 @@ type AppShellProps = {
   children: ReactNode;
 };
 
+function PageChrome({ children }: { children: ReactNode }) {
+  return (
+    <div className="relative min-h-full bg-background">
+      <SiteHeader />
+      {/* overflow-x-clip (not hidden): overflow-x-hidden forces overflow-y:auto
+          and creates a nested vertical scrollbar that steals wheel scroll. */}
+      <main className="max-w-screen overflow-x-clip px-2 pb-10">
+        {children}
+      </main>
+      <ScrollTop />
+    </div>
+  );
+}
+
 /**
- * Full-page HexFloat shell so header + content map onto the hex tiles
- * (same composition as the canvas-ui demo). Polyfill enables html-in-canvas
- * when the Chrome origin-trial / flag API is not present.
+ * Full-page HexFloat shell so header + content map onto the hex tiles.
+ * Polyfill is loaded client-only (it touches DOM globals and breaks SSR).
  */
 export function AppShell({ children }: AppShellProps) {
+  const [hexReady, setHexReady] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    void import("html-in-canvas-polyfill").then(() => {
+      if (!cancelled) setHexReady(true);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  if (!hexReady) {
+    return <PageChrome>{children}</PageChrome>;
+  }
+
   return (
     <HexFloat
       className="h-svh w-full bg-background"
@@ -43,15 +70,7 @@ export function AppShell({ children }: AppShellProps) {
       grain={0.18}
       gapColor={[0.08, 0.14, 0.16]}
     >
-      <div className="relative min-h-full bg-background">
-        <SiteHeader />
-        {/* overflow-x-clip (not hidden): overflow-x-hidden forces overflow-y:auto
-            and creates a nested vertical scrollbar that steals wheel scroll. */}
-        <main className="max-w-screen overflow-x-clip px-2 pb-10">
-          {children}
-        </main>
-        <ScrollTop />
-      </div>
+      <PageChrome>{children}</PageChrome>
     </HexFloat>
   );
 }

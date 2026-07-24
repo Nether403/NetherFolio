@@ -1,7 +1,5 @@
 "use client";
 
-import "html-in-canvas-polyfill";
-
 import {
   type ReactNode,
   useEffect,
