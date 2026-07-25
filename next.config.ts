@@ -61,7 +61,25 @@ const nextConfig: NextConfig = {
         headers: [
           {
             key: "Cache-Control",
-            value: "public, max-age=0, s-maxage=60, must-revalidate",
+            value: "private, no-cache, no-store, max-age=0, must-revalidate",
+          },
+        ],
+      },
+      {
+        source: "/blog",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "private, no-cache, no-store, max-age=0, must-revalidate",
+          },
+        ],
+      },
+      {
+        source: "/blog/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "private, no-cache, no-store, max-age=0, must-revalidate",
           },
         ],
       },
