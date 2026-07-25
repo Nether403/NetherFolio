@@ -4,6 +4,7 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 
 import { Providers } from "@/components/providers";
+import { HTML_IN_CANVAS_ORIGIN_TRIAL_TOKEN } from "@/config/origin-trials";
 import { META_THEME_COLORS, SITE_INFO } from "@/config/site";
 import { USER } from "@/features/profile/data/user";
 import { fontDisplay, fontMono, fontSans } from "@/lib/fonts";
@@ -225,6 +226,11 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head suppressHydrationWarning>
+        {/* Chrome Origin Trial: HTML-in-Canvas for HexFloat on *.101dev.xyz */}
+        <meta
+          httpEquiv="origin-trial"
+          content={HTML_IN_CANVAS_ORIGIN_TRIAL_TOKEN}
+        />
         <script
           type="text/javascript"
           dangerouslySetInnerHTML={{ __html: darkModeScript }}

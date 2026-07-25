@@ -1,0 +1,3 @@
+/** Chrome Origin Trial token for HTML-in-Canvas on *.101dev.xyz */
+export const HTML_IN_CANVAS_ORIGIN_TRIAL_TOKEN =
+  "AkIXuo+J3wm9ixER5WYYZRAX1JelfnQQsQ6DqqNUX443lNoreHFLquJ1ZdD03BeeCJPJYSrNBaP8B1BWjdeWHgEAAABjeyJvcmlnaW4iOiJodHRwczovLzEwMWRldi54eXo6NDQzIiwiZmVhdHVyZSI6IkhUTUxJbkNhbnZhcyIsImV4cGlyeSI6MTc5MjQ1NDQwMCwiaXNTdWJkb21haW4iOnRydWV9";

@@ -1,5 +1,7 @@
 import type { NextConfig } from "next";
 
+import { HTML_IN_CANVAS_ORIGIN_TRIAL_TOKEN } from "./src/config/origin-trials";
+
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   turbopack: {
@@ -44,6 +46,11 @@ const nextConfig: NextConfig = {
           {
             key: "Cross-Origin-Opener-Policy",
             value: "same-origin-allow-popups",
+          },
+          {
+            // Chrome Origin Trial — HTML-in-Canvas (*.101dev.xyz)
+            key: "Origin-Trial",
+            value: HTML_IN_CANVAS_ORIGIN_TRIAL_TOKEN,
           },
         ],
       },
